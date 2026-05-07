@@ -1,0 +1,72 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files
+data/trajectories/*.json
+data/landscape_scans/*.json
+!data/trajectories/.gitkeep
+!data/landscape_scans/.gitkeep
+
+# Visualizations
+analysis/visualizations/
+
+# API keys and secrets
+config.txt
+参考文献/config
+
+# One-off utility scripts
+delete_empty_files.py
+find_empty_files.py
+参考文献/paper_parser.py
+参考文献/pdf_to_markdown_multiprocess.py
+
+# Reference literature (large binary/derived files)
+参考文献/
+
+# Experiment outputs (regeneratable)
+outputs/
+
+# Reports and documentation (not required for running)
+Phase2进展报告.md
+实验报告.md
+实验框架.md
+论文大纲.md
+作者心得.md
+codemap.md
+llm_doc.md
+困难任务设计.md
+新框架实验总结.md
+test_framework.py
+
+# OS
+.DS_Store
+Thumbs.db
