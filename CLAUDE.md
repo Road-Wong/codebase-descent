@@ -24,7 +24,7 @@ The `external_datasets/` directory contains 14 benchmark datasets (~70MB total) 
 
 **Reference/Tools:** LiveCodeBench, Magicoder, CodeGeeX, OpenCodeInterpreter
 
-See `困难任务设计.md` sections 七 and 十 for detailed analysis and adapter recommendations.
+See `docs/design/困难任务设计.md` sections 七 and 十 for detailed analysis and adapter recommendations.
 
 ## Commands
 
@@ -36,9 +36,9 @@ cp config.txt.example config.txt   # 3 lines: base_url, model, api_key
 
 ### Run Tests (no LLM required)
 ```bash
-python test_new_architecture.py    # 11 tests: types, env, agent, loop runner, diff
-python test_protocol.py            # 8 tests: SEARCH/REPLACE protocol, CodeEnv
-python test_sgd_smo.py             # 8 tests: SGD evaluator, DiffAgent, metrics, SMO
+pytest tests/                      # 78 tests across 19 test modules
+pytest tests/ -v                   # verbose mode
+pytest tests/ -k "test_types"      # run specific test
 ```
 
 ### Run Experiments (requires config.txt with valid API key)

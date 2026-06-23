@@ -11,7 +11,7 @@ Codebase Descent — RL/control-theory framework that models LLM code iteration 
 - **Generation**: HumanEval (164), MBPP (974), EvalPlus, BigCodeBench (1140), DS-1000 (1000), CodeContests (~10K), APPS (~10K)
 - **Reference**: LiveCodeBench, Magicoder, CodeGeeX, OpenCodeInterpreter
 
-See `困难任务设计.md` for adapter analysis and priority recommendations.
+See `docs/design/困难任务设计.md` for adapter analysis and priority recommendations.
 
 ## Commands
 
@@ -22,12 +22,9 @@ cp config.txt.example config.txt   # 3 lines: base_url, model, api_key
 
 ### Tests (no LLM/API needed)
 
-Three standalone scripts — **not** pytest. Run each directly:
-
 ```bash
-python test_new_architecture.py    # 11 tests: types, env, agent, loop runner, diff
-python test_protocol.py            # 8 tests: SEARCH/REPLACE protocol, CodeEnv
-python test_sgd_smo.py             # 8 tests: SGD evaluator, DiffAgent, metrics, SMO
+pytest tests/                      # 78 tests across 19 test modules
+pytest tests/ -v                   # verbose mode
 ```
 
 ### Experiments (requires config.txt with valid API key)
@@ -60,9 +57,9 @@ Agent (agents/)  →  Action (SEARCH/REPLACE)  →  Environment (environments/)
 ## Key quirks
 
 - **config.txt format**: 3 plain lines (base_url, model, api_key) — not JSON/YAML.
-- **Test scripts use `sys.path.insert(0, ...)`** — run from repo root.
+- **Test runner**: `pytest tests/` — all tests in `tests/` directory, conftest.py handles sys.path.
 - **Backward-compat shims**: `agent/` re-exports from `agents/`, `benchmarks/` re-exports from `environments/`. Prefer the canonical packages.
 - **Protocol format**: Aider-style `<<<< SEARCH / ==== / >>>>` with fuzzy matching (`core/protocol.py`).
 - **SGDEvaluator** shuffles tests, stops at first fail, returns ONE error — agent never sees test cases.
 - **Output dir**: experiments write to `outputs/` (gitignored).
-- **External datasets**: `external_datasets/` contains 14 benchmark datasets. QuixBugs is the lowest-cost adapter for SMO validation. See `困难任务设计.md` for details.
+- **External datasets**: `external_datasets/` contains 14 benchmark datasets (gitignored, ~70MB). QuixBugs is the lowest-cost adapter for SMO validation. See `docs/design/困难任务设计.md` for details.
