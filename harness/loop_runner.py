@@ -264,7 +264,6 @@ def create_agent_from_config(
         return BaselineAgent(
             llm_kernel=llm_kernel,
             temperature=config.agent.temperature,
-            max_history=config.agent.max_history,
         )
     else:
         raise ValueError(f"Unknown agent type: {agent_type}")
