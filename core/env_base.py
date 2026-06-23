@@ -216,7 +216,7 @@ class AbstractEnvironment(ABC):
         Override to inject noise via NoiseInjector.
         """
         if self._obfuscation_level > 0:
-            from benchmarks.obfuscator import obfuscate_code
+            from environments.obfuscator import obfuscate_code
             code, _ = obfuscate_code(
                 self._ground_truth, level=self._obfuscation_level
             )
