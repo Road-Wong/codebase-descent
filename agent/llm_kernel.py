@@ -9,7 +9,7 @@ class LLMKernel:
     Implements the gradient descent operator in code space.
     """
     
-    def __init__(self, api_key: str, base_url: str, model: str = "mimo-v2-flash"):
+    def __init__(self, api_key: str, base_url: str, model: str = "mimo-v2.5"):
         """
         Initialize LLM client.
         

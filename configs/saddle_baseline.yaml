@@ -1,0 +1,15 @@
+# Baseline agent on Saddle environment (no momentum)
+experiment_name: saddle_baseline
+num_trials: 5
+
+agent:
+  type: baseline
+  temperature: 0.0
+  max_history: 10
+
+environment:
+  name: saddle
+  obfuscation_level: 0
+  max_steps: 20
+
+output_dir: outputs/saddle_baseline

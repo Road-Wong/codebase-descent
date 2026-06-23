@@ -1,0 +1,16 @@
+# SMO (Semantic Momentum Optimizer) on Saddle environment
+experiment_name: saddle_smo
+num_trials: 5
+
+agent:
+  type: momentum
+  temperature: 0.7
+  beta: 0.7
+  max_history: 3
+
+environment:
+  name: saddle
+  obfuscation_level: 0
+  max_steps: 20
+
+output_dir: outputs/saddle_smo

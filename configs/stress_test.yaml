@@ -1,0 +1,16 @@
+# Stress test: Baseline vs SMO at multiple obfuscation levels
+experiment_name: stress_test
+num_trials: 3
+
+agent:
+  type: momentum
+  temperature: 0.7
+  beta: 0.7
+  max_history: 3
+
+environment:
+  name: saddle
+  obfuscation_level: 2
+  max_steps: 15
+
+output_dir: outputs/stress_test
